@@ -29,7 +29,7 @@ cd ..
 
 tar cvf mesa_src.tar.gz ${srcdir}
 cd ${srcdir}
-time DEB_BUILD_OPTIONS="nocheck parallel=2" dpkg-buildpackage --build=binary
+time DEB_BUILD_OPTIONS="nocheck parallel=4" dpkg-buildpackage --build=binary
 cd ..
 
 
