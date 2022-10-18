@@ -1,0 +1,6 @@
+# action.yml
+name: 'Pinenote mutter package'
+description: 'Compile and package mutter for Debian on the Pine64 Pinenote'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
