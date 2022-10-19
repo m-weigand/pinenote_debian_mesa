@@ -16,5 +16,5 @@ jobs:
       - name: Upload files
         uses: actions/upload-artifact@v3
         with:
-          name: mutter
+          name: mesa_arm64_pinenote
           path: ${{ runner.temp }}/_github_home/mesa_arm64_debs
