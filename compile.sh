@@ -27,16 +27,23 @@ cd ${srcdir}
 patch -p1 < ../../rockchip_ebc.patch
 cd ..
 
-tar cvf mesa_src.tar.gz ${srcdir}
+# tar cvf mesa_src.tar.gz ${srcdir}
+XZ_OPT='-9' tar -cvJf mesa_src.tar.xz "${srcdir}"
+
 cd ${srcdir}
 time DEB_BUILD_OPTIONS="nocheck parallel=4" dpkg-buildpackage --build=binary
 cd ..
+
+# save some space and remove unused .deb packages
+rm *dbgsym*.deb
+rm *dev*.deb
+rm mesa-opencl-icd*_arm64.deb
 
 
 test -d mesa_arm64_debs && rm -r mesa_arm64_debs
 mkdir mesa_arm64_debs
 mv *.deb mesa_arm64_debs/
-mv mesa_src.tar.gz mesa_arm64_debs/
+mv mesa_src.tar.xz mesa_arm64_debs/
 
 echo "moving directory"
 
