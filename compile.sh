@@ -36,8 +36,8 @@ cd ..
 
 # save some space and remove unused .deb packages
 rm *dbgsym*.deb
-rm *dev*.deb
-rm mesa-opencl-icd*_arm64.deb
+# *dev*.deb
+# rm mesa-opencl-icd*_arm64.deb
 
 
 test -d mesa_arm64_debs && rm -r mesa_arm64_debs
